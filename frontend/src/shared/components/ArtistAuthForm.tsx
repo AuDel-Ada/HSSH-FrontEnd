@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import HsshButton from './HsshButton';
 
@@ -67,7 +66,7 @@ const ArtistAuthForm: React.FC = () => {
         <button onClick={handleClick} className="mr-4">
           <i className="fa-solid fa-palette text-lg"></i>
         </button>
-        <HsshButton text={'LOGOUT'} action={handleLogoutButton} />
+        <HsshButton text={'LOGOUT'} onClick={handleLogoutButton} />
         <HsshButton text={'MY SPACE'} />
       </div>
     );
