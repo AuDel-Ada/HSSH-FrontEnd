@@ -8,7 +8,7 @@ const ArtistAuthForm: React.FC = () => {
   const [artistEmail, setArtistEmail] = useState('');
   const [artistPassword, setArtistPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (artistEmail !== '' && artistPassword !== '') {
       toggleAuth(false);
@@ -80,5 +80,3 @@ const ArtistAuthForm: React.FC = () => {
 };
 
 export default ArtistAuthForm;
-
-// TODO: fix ts error
