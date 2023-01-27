@@ -7,7 +7,7 @@ const Join: React.FC = () => {
   return (
     <LayoutBlack
       childComponent={
-        <div className="w-screen h-screen relative">
+        <div className="w-screen h-screen overflow-hidden	">
           <Outlet />
         </div>
       }

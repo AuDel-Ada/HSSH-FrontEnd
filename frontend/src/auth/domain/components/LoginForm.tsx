@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
 import type { AuthFormInput } from '../types/auth.type';
@@ -15,7 +15,12 @@ const LoginForm: React.FC = () => {
   const onSubmit = handleSubmit((data) => console.log(data));
 
   return (
-    <div className="w-1/3 m-auto mt-52">
+    <div className="w-1/3 m-auto mt-32">
+      <div className="text-center text-2xl mb-20">
+        <NavLink to={'../../home'}>
+          <strong>HOUSESHOW</strong>
+        </NavLink>
+      </div>
       <Box
         childComponent={
           <>
