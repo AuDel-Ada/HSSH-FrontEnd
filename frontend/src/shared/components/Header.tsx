@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ArtistAuthForm from './ArtistAuthForm';
 import Box from './Box';
+import MetamaskConnectionButton from './MetamaskConnectionButton';
 
 const Header: React.FC = () => {
   return (
@@ -9,11 +10,10 @@ const Header: React.FC = () => {
       <Box
         childComponent={
           <div className="flex items-center justify-between">
-            <ArtistAuthForm></ArtistAuthForm>
+            <ArtistAuthForm />
             <Link to={'../home'}>HOUSE/SHOW</Link>
-            <button>
-              <i className="fa-solid fa-wallet text-lg"></i>
-            </button>
+
+            <MetamaskConnectionButton />
           </div>
         }
       ></Box>
