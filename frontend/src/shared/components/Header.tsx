@@ -12,7 +12,6 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-between">
             <ArtistAuthForm />
             <Link to={'../home'}>HOUSE/SHOW</Link>
-
             <MetamaskConnectionButton />
           </div>
         }
