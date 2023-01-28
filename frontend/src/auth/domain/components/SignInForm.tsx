@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
 import type { AuthFormInput } from '../types/auth.type';
@@ -16,12 +16,6 @@ const SignInForm: React.FC = () => {
 
   return (
     <div className="w-1/3 m-auto mt-32">
-      <div className="text-center text-2xl mb-20">
-        <NavLink to={'../../home'}>
-          <strong>HOUSESHOW</strong>
-        </NavLink>
-      </div>
-
       <Box
         childComponent={
           <>
@@ -68,7 +62,6 @@ const SignInForm: React.FC = () => {
                     type="password"
                   ></input>
                   <p>
-                    {' '}
                     {errors.password && <span>This field is required</span>}
                   </p>
                 </div>

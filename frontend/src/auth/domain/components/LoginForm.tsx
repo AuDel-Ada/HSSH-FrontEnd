@@ -16,11 +16,6 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className="w-1/3 m-auto mt-32">
-      <div className="text-center text-2xl mb-20">
-        <NavLink to={'../../home'}>
-          <strong>HOUSESHOW</strong>
-        </NavLink>
-      </div>
       <Box
         childComponent={
           <>
