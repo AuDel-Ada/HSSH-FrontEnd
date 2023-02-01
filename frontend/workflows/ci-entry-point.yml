@@ -9,7 +9,6 @@ on:
       - main
       - dev
       - "HSSH-**"
-  workflow_dispatch:
   
 jobs:
   checkout-project:
