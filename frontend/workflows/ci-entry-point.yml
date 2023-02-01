@@ -1,3 +1,5 @@
+name : entry-point-ci
+
 on: 
   push:
     branches: 
@@ -9,6 +11,7 @@ on:
       - main
       - dev
       - "HSSH-**"
+  workflow_dispatch:
   
 jobs:
   checkout-project:
