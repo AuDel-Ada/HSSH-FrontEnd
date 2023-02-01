@@ -1,0 +1,28 @@
+on: 
+  push:
+    branches: 
+      - main
+      - dev
+      - "HSSH-**"
+  pull_request:
+    branches: 
+      - main
+      - dev
+      - "HSSH-**"
+  workflow_dispatch:
+  
+jobs:
+  checkout-project:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone project
+      uses: actions/checkout@v3
+
+    - name: Proper setup
+      uses: actions/setup-node@v3
+      with: 
+        node-version: 16
+
+    - name: Analyze JS quality 
+      run: npm run lint
