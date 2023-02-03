@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArtistAuthForm from './ArtistAuthForm';
+import ArtistConnectButtons from './ArtistConnectButtons';
 import Box from './Box';
 import MetamaskConnectionButton from './MetamaskConnectionButton';
 
@@ -10,9 +10,8 @@ const Header: React.FC = () => {
       <Box
         childComponent={
           <div className="flex items-center justify-between">
-            <ArtistAuthForm />
+            <ArtistConnectButtons />
             <Link to={'../home'}>HOUSE/SHOW</Link>
-
             <MetamaskConnectionButton />
           </div>
         }
