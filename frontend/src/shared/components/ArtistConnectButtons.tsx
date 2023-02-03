@@ -10,7 +10,7 @@ const ArtistConnectButtons: React.FC = () => {
       <div className="flex">
         <div className="mr-4">
           <NavLink to={'../join/sign-in'}>
-            <HsshButton text={'SIGN IN'}></HsshButton>
+            <HsshButton text={'SIGN UP'}></HsshButton>
           </NavLink>
         </div>
         <div>

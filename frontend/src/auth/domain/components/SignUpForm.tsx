@@ -19,7 +19,7 @@ const SignInForm: React.FC = () => {
       <Box
         childComponent={
           <>
-            <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
+            <h1 className="text-2xl font-bold mb-6 text-center">Sign up</h1>
             <form onSubmit={onSubmit}>
               <div className="mb-4">
                 <div className="mb-2">
@@ -31,7 +31,9 @@ const SignInForm: React.FC = () => {
                     type="text"
                     className="text-black w-full p-2"
                   ></input>
-                  <p> {errors.pseudo && <span>This field is required</span>}</p>
+                  <p className="mt-2">
+                    {errors.pseudo && <span>This field is required</span>}
+                  </p>
                 </div>
               </div>
               <div className="mb-4">
@@ -44,7 +46,9 @@ const SignInForm: React.FC = () => {
                     type="email"
                     className="text-black w-full p-2"
                   ></input>
-                  <p> {errors.email && <span>This field is required</span>}</p>
+                  <p className="mt-2">
+                    {errors.email && <span>This field is required</span>}
+                  </p>
                 </div>
               </div>
               <div className="mb-4">
@@ -61,7 +65,7 @@ const SignInForm: React.FC = () => {
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
-                  <p>
+                  <p className="mt-2">
                     {errors.password && <span>This field is required</span>}
                   </p>
                 </div>

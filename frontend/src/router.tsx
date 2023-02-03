@@ -3,7 +3,7 @@ import React from 'react';
 import Home from './home/domain/page/Home.page';
 import Gallery from './gallery/domain/page/Gallery.page';
 import Join from './auth/domain/page/Join.page';
-import SignInForm from './auth/domain/components/SignInForm';
+import SignUpForm from './auth/domain/components/SignUpForm';
 import LoginForm from './auth/domain/components/LoginForm';
 
 const Router: React.FC = () => {
@@ -14,7 +14,7 @@ const Router: React.FC = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/join" element={<Join />}>
-          <Route path="sign-in" element={<SignInForm />}></Route>
+          <Route path="sign-in" element={<SignUpForm />}></Route>
           <Route path="login" element={<LoginForm />}></Route>
         </Route>
       </Routes>

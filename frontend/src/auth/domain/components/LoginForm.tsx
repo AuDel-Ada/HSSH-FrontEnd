@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
 import type { AuthFormInput } from '../types/auth.type';
@@ -33,7 +33,9 @@ const LoginForm: React.FC = () => {
                     type="email"
                     className="text-black w-full p-2"
                   ></input>
-                  <p> {errors.email && <span>This field is required</span>}</p>
+                  <p className="mt-2">
+                    {errors.email && <span>This field is required</span>}
+                  </p>
                 </div>
               </div>
               <div className="mb-4">
@@ -46,8 +48,7 @@ const LoginForm: React.FC = () => {
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
-                  <p>
-                    {' '}
+                  <p className="mt-2">
                     {errors.password && <span>This field is required</span>}
                   </p>
                 </div>
