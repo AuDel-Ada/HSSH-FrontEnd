@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   return (
     <LayoutBlack
       childComponent={
-        <div className="flex flex-col items-center h-full">
+        <div className="flex flex-col items-center">
           <Header></Header>
           <main className="h-full flex flex-col justify-center">
             <Gallery></Gallery>
