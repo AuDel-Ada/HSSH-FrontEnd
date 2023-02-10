@@ -1,6 +1,5 @@
 import React from 'react';
 import Box from '../../../shared/components/Box';
-import { Link } from 'react-router-dom';
 
 const Banner: React.FC = () => {
   return (
@@ -8,7 +7,7 @@ const Banner: React.FC = () => {
       <Box
         childComponent={
           <div className="flex justify-center items-center">
-            <Link to={'../gallery'}>VISIT GALLERY</Link>
+            <h1>I AM A BANNER</h1>
           </div>
         }
       ></Box>
