@@ -8,7 +8,7 @@ const MetamaskConnectionButton: React.FC = () => {
         {({ show }) => {
           return (
             <button onClick={show}>
-              <i className="fa-solid fa-wallet text-lg"></i>
+              <i className="fa-solid fa-wallet text-2xl"></i>
             </button>
           );
         }}
