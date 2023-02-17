@@ -8,6 +8,9 @@ import { ReactComponent as Logo } from '../../assets/svg/logo.svg';
 const Header: React.FC = () => {
   return (
     <header className="w-screen">
+      <Link to={'../home'}>
+        <Logo title="HouseShow logo" className="w-96 pl-4 h-28"></Logo>
+      </Link>
       <Box
         childComponent={
           <div className="flex items-center justify-between">
@@ -16,9 +19,6 @@ const Header: React.FC = () => {
           </div>
         }
       ></Box>
-      <Link to={'../home'}>
-        <Logo className="w-96 pl-4 h-28"></Logo>
-      </Link>
     </header>
   );
 };
