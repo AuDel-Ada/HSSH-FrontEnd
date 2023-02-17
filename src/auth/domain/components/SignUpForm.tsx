@@ -15,7 +15,7 @@ const SignInForm: React.FC = () => {
   const onSubmit = handleSubmit((data) => console.log(data));
 
   return (
-    <div className="w-1/3 m-auto">
+    <div className="w-1/3 m-auto mt-24">
       <Box
         childComponent={
           <>
