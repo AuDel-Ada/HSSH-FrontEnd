@@ -5,7 +5,7 @@ export interface IArtist {
   pronouns?: string;
   bio?: string;
   country?: string;
-  smartContractNumber?: string[];
+  smartContractNumber?: `0x${string}`[];
 }
 
 export interface IArtistResponse {
@@ -23,3 +23,8 @@ export interface IArtistForm {
   bio?: string;
   country?: string;
 }
+
+export interface IArtistsResponse {
+  artists: IArtist[];
+}
+

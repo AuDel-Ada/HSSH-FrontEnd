@@ -1,5 +1,5 @@
 import { IArtistForm } from './../types/artist.type';
-import type { IArtistResponse } from '../types/artist.type';
+import type { IArtistResponse, IArtistsResponse } from '../types/artist.type';
 
 const URL = 'http://localhost:8000/';
 
@@ -22,5 +22,10 @@ export const updateArtistProfile = async (
       Authorization: 'RANDOM_TOKEN_SECRET',
     },
   });
+  return response.json();
+};
+
+export const fetchAllArtistsInfos = async (): Promise<IArtistsResponse> => {
+  const response = await fetch(`http://localhost:8000/artists/`);
   return response.json();
 };
