@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "license": "GPL",
-  "description": "backend side of HSSH project",
+  "description": "frontend side of HSSH project",
   "author": "Aurelie Delaunay, Caroline Guedj, Flora Hommand",
   "type": "module",
   "scripts": {
