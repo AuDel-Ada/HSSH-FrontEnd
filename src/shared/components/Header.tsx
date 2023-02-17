@@ -9,7 +9,9 @@ const Header: React.FC = () => {
   return (
     <header className="w-screen">
       <Link to={'../home'}>
-        <Logo title="HouseShow logo" className="w-96 pl-4 h-28"></Logo>
+        <div title="HouseShow logo">
+          <Logo className="w-96 pl-4 h-28"></Logo>
+        </div>
       </Link>
       <Box
         childComponent={
