@@ -3,14 +3,13 @@ name: entry-point-ci
 on:
   push:
     branches:
+      - main
       - dev
-      - 'HSSH-**'
   pull_request:
     branches:
       - main
       - dev
       - 'HSSH-**'
-  workflow_dispatch:
 
 jobs:
   checkout-project:
