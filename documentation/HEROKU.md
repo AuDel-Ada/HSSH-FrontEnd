@@ -8,13 +8,13 @@ There is only 1 CI, by Github Actions, to be sure that new code :
 - is linted
 - passes tests
 
-STAGGING & PROD are deployed on Heroku
+STAGING & PROD are deployed on Heroku
 
-## STAGGING
+## STAGING
 
-https://house-show--front-stagging.herokuapp.com/
+https://house-show--front-staging.herokuapp.com/
 by manual deploy of dev branch
--> On Heroku plateform, go to app house-show--front-stagging
+-> On Heroku plateform, go to app house-show--front-staging
 -> Go to deploy, at the end of the page, on manual deploy part, choose "dev"
 -> Then click on "deploy branch".
 
