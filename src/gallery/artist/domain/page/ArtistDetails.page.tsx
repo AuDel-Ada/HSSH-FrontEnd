@@ -4,13 +4,16 @@ import Header from '../../../../shared/components/Header';
 import useFetchArtistDetails from '../hooks/fetchArtistDetails.hook';
 
 const ArtistDetails: React.FC = () => {
-  const { artist, isArtistLoading } = useFetchArtistDetails(
+  const { artist, isArtistLoading, error } = useFetchArtistDetails(
     // add a valid id please
     '63d7d08'
   );
 
   if (isArtistLoading) {
     return <h2>Loading...</h2>;
+  }
+  if (error) {
+    return <h2>Error...</h2>;
   }
 
   return (
