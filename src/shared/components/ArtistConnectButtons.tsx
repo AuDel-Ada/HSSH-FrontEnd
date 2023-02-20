@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import HsshButton from './HsshButton';
+import ArtistAccessProfile from './ArtistAccessProfile';
 
 const ArtistConnectButtons: React.FC = () => {
   const isArtistLoggedIn = false;
@@ -20,13 +21,8 @@ const ArtistConnectButtons: React.FC = () => {
         </div>
       </div>
     );
-  } else {
-    return (
-      <div>
-        <i className="fa-solid fa-user"></i>
-      </div>
-    );
   }
+  return <ArtistAccessProfile />;
 };
 
 export default ArtistConnectButtons;
