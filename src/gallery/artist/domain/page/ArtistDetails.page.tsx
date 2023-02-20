@@ -6,7 +6,7 @@ import useFetchArtistDetails from '../hooks/fetchArtistDetails.hook';
 const ArtistDetails: React.FC = () => {
   const { artist, isArtistLoading } = useFetchArtistDetails(
     // add a valid id please
-    '63d7d0...'
+    '63d7d08'
   );
 
   if (isArtistLoading) {
