@@ -23,7 +23,7 @@ const ArtistInfoLeft: React.FC<IArtistComponents> = (props) => {
             <div className="text-lg">
               <div className="mb-4 font-bold">BIOGRAPHY</div>
               <div className="text-justify">
-                {props.artist.bio ? props.artist.bio : ' undefined'}{' '}
+                {props.artist.bio ? props.artist.bio : ' undefined'}
               </div>
             </div>
           </div>
