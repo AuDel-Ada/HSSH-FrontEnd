@@ -2,12 +2,16 @@ export interface IArtist {
   name: string;
   email: string;
   password: string;
-  gender?: string;
+  pronouns?: string;
   bio?: string;
-  nationality?: string;
+  country?: string;
   smartContractNumber?: string[];
 }
 
 export interface IArtistResponse {
+  artist: IArtist;
+}
+
+export interface IArtistComponents {
   artist: IArtist;
 }
