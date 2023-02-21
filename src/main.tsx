@@ -23,7 +23,7 @@ const queryCache = new QueryClient({
   },
 });
 
-const client = createClient(
+const wagmiClient = createClient(
   getDefaultClient({
     appName: 'ConnectKit Vite Demo',
     // alchemyId: process.env.ALCHEMY_ID,
@@ -35,7 +35,7 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryCache}>
       <BrowserRouter>
-        <WagmiConfig client={client}>
+        <WagmiConfig client={wagmiClient}>
           <ConnectKitProvider
             theme="midnight"
             options={{

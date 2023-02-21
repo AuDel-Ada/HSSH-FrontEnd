@@ -1,4 +1,4 @@
-export interface HsshButtonType {
+export interface IHsshButtonType {
   text?: string;
   onClick?: () => void;
   childComponent?: React.ReactNode;
