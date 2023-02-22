@@ -8,7 +8,7 @@ const ArtistDetails: React.FC = () => {
   return (
     <LayoutBlack
       childComponent={
-        <div className="w-screen h-screen overflow-auto">
+        <div className="w-screen overflow-auto">
           <Header />
           <Outlet />
         </div>
