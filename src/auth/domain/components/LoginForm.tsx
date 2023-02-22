@@ -33,7 +33,7 @@ const LoginForm: React.FC = () => {
                     type="email"
                     className="text-black w-full p-2"
                   ></input>
-                  <p className="mt-2">
+                  <p className="mt-2 text-red-500">
                     {errors.email && <span>This field is required</span>}
                   </p>
                 </div>
@@ -48,7 +48,7 @@ const LoginForm: React.FC = () => {
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
-                  <p className="mt-2">
+                  <p className="mt-2 text-red-500">
                     {errors.password && <span>This field is required</span>}
                   </p>
                 </div>

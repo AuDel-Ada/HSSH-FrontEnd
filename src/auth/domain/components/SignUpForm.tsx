@@ -31,8 +31,12 @@ const SignInForm: React.FC = () => {
                     type="text"
                     className="text-black w-full p-2"
                   ></input>
-                  <p className="mt-2">
-                    {errors.pseudo && <span>This field is required</span>}
+                  <p className="mt-2 text-red-500">
+                    {errors.pseudo && (
+                      <span>
+                        This field is required with a minimum of 8 characters
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>
@@ -46,7 +50,7 @@ const SignInForm: React.FC = () => {
                     type="email"
                     className="text-black w-full p-2"
                   ></input>
-                  <p className="mt-2">
+                  <p className="mt-2 text-red-500">
                     {errors.email && <span>This field is required</span>}
                   </p>
                 </div>
@@ -65,7 +69,7 @@ const SignInForm: React.FC = () => {
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
-                  <p className="mt-2">
+                  <p className="mt-2 text-red-500">
                     {errors.password && <span>This field is required</span>}
                   </p>
                 </div>
