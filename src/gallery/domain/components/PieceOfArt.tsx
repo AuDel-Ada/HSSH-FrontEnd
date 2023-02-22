@@ -19,8 +19,6 @@ const PieceOfArt = ({ id }: { id: number }): JSX.Element => {
             <img
               src="https://maddyness.twic.pics/2022/08/Pawel-Czerwinski-art-nft.jpg?twic=v1/cover=2190x1102"
               alt="nft artwork"
-              width="500"
-              height="500"
               className="aspect-square hover:scale-150"
             ></img>
             <HsshButton text={'VISIT'} />
