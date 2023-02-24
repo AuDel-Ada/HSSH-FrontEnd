@@ -19,8 +19,12 @@ export interface IArtistComponents {
 export interface IArtistForm {
   name: string;
   email: string;
-  password: string;
   pronouns?: string;
   bio?: string;
   country?: string;
+}
+
+export interface IArtistUpdate {
+  id: string;
+  artistDetails: IArtistForm;
 }

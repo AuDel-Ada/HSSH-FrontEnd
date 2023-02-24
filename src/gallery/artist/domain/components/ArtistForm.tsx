@@ -6,24 +6,33 @@ import Box from '../../../../shared/components/Box';
 import { IArtistForm } from '../types/artist.type';
 import HsshButton from '../../../../shared/components/HsshButton';
 import useFetchArtistDetails from '../hooks/fetchArtistDetails.hook';
-import { updateArtistProfile } from '../services/Artist.services';
+import useUpdateArtistDetails from '../hooks/updateArtistDetails.hooks';
+
 const ArtistForm: React.FC = () => {
+  const DEFAULT_ID = '63f49fb1e385925cf0383947';
   const navigate = useNavigate();
+
+  const { artist, isArtistLoading, error } = useFetchArtistDetails(
+    // TODO add a valid id please
+    DEFAULT_ID
+  );
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IArtistForm>();
 
+  const { updateArtistDetails } = useUpdateArtistDetails();
+
   const onSubmit = handleSubmit((data) => {
-    console.log('data', data);
-    updateArtistProfile('63f49fb1e385925cf0383947', data);
+    const params = {
+      id: DEFAULT_ID,
+      info: data,
+    };
+    updateArtistDetails.mutate(params);
   });
 
-  const { artist, isArtistLoading, error } = useFetchArtistDetails(
-    // TODO add a valid id please
-    '63f49fb1e385925cf0383947'
-  );
   if (isArtistLoading) {
     return <h2 className="m-4">Loading...</h2>;
   } else if (error || !artist) {
@@ -32,11 +41,13 @@ const ArtistForm: React.FC = () => {
 
   return (
     <>
-      <div className="w-2/3 m-auto mt-6 overflow-auto">
+      <div className="w-full md:w-2/3 m-auto mt-6 ">
         <Box
           childComponent={
             <>
-              <h2 className="font-bold text-2xl mb-6">EDIT YOUR PROFILE</h2>
+              <h2 className="font-bold text-2xl mb-8 text-center">
+                EDIT YOUR PROFILE
+              </h2>
               <form onSubmit={onSubmit}>
                 <div className="name mb-6">
                   <div className="mb-2">
@@ -44,10 +55,10 @@ const ArtistForm: React.FC = () => {
                   </div>
                   <div>
                     <input
-                      {...register('name', { required: true, maxLength: 20 })}
+                      {...register('name', { required: true })}
                       type="text"
                       defaultValue={artist.name}
-                      className="text-black w-1/2 p-2"
+                      className="text-black p-2 w-full"
                     ></input>
                     <p className="mt-2 text-red-500">
                       {errors.name && <span>This field can not be empty</span>}
@@ -63,33 +74,10 @@ const ArtistForm: React.FC = () => {
                       {...register('email', { required: true })}
                       type="email"
                       defaultValue={artist.email}
-                      className="text-black w-1/2 p-2"
+                      className="text-black w-full p-2"
                     ></input>
                     <p className="mt-2 text-red-500">
                       {errors.email && <span>This field can not be empty</span>}
-                    </p>
-                  </div>
-                </div>
-                <div className="mb-6">
-                  <div className="mb-2">
-                    <label className="text-lg">Your password :</label>
-                  </div>
-                  <div className="password mb-6">
-                    <input
-                      {...register('password', {
-                        required: true,
-                        minLength: 8,
-                      })}
-                      className="text-black w-1/2 p-2"
-                      type="password"
-                      defaultValue={artist.password}
-                    ></input>
-                    <p className="mt-2 text-red-500">
-                      {errors.password && (
-                        <span>
-                          This field is required with a minimum of 8 characters
-                        </span>
-                      )}
                     </p>
                   </div>
                 </div>
@@ -101,9 +89,9 @@ const ArtistForm: React.FC = () => {
                   </div>
                   <div>
                     <input
-                      {...register('country', { maxLength: 20 })}
+                      {...register('country')}
                       type="text"
-                      className="text-black w-1/2 p-2"
+                      className="text-black p-2 w-full"
                       defaultValue={artist?.country}
                     ></input>
                   </div>
@@ -114,9 +102,9 @@ const ArtistForm: React.FC = () => {
                   </div>
                   <div>
                     <input
-                      {...register('pronouns', { maxLength: 20 })}
+                      {...register('pronouns')}
                       type="text"
-                      className="text-black w-1/2 p-2"
+                      className="text-black p-2 w-full"
                       defaultValue={artist?.pronouns}
                     ></input>
                   </div>
@@ -128,7 +116,7 @@ const ArtistForm: React.FC = () => {
                   <div>
                     <textarea
                       {...register('bio')}
-                      className="text-black w-full p-2 h-60"
+                      className="text-black w-full p-2 h-80"
                       defaultValue={artist?.bio}
                     ></textarea>
                   </div>
