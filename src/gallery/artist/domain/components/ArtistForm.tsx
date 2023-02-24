@@ -9,7 +9,7 @@ import useFetchArtistDetails from '../hooks/fetchArtistDetails.hook';
 import useUpdateArtistDetails from '../hooks/updateArtistDetails.hooks';
 
 const ArtistForm: React.FC = () => {
-  const DEFAULT_ID = '63f49fb1e385925cf0383947';
+  const DEFAULT_ID = '63d7d085d6c95a0b324e2afe';
   const navigate = useNavigate();
 
   const { artist, isArtistLoading, error } = useFetchArtistDetails(

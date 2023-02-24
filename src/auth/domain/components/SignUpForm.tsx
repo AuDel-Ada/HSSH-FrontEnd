@@ -32,11 +32,7 @@ const SignInForm: React.FC = () => {
                     className="text-black w-full p-2"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.name && (
-                      <span>
-                        This field is required with a minimum of 8 characters
-                      </span>
-                    )}
+                    {errors.name && <span>This field is required</span>}
                   </p>
                 </div>
               </div>
