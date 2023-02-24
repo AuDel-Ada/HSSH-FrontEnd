@@ -27,8 +27,8 @@ const ArtistForm: React.FC = () => {
 
   const onSubmit = handleSubmit((data) => {
     const params = {
-      id: DEFAULT_ID,
-      info: data,
+      artistId: DEFAULT_ID,
+      artistDetails: data,
     };
     updateArtistDetails.mutate(params);
   });

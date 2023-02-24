@@ -23,8 +23,3 @@ export interface IArtistForm {
   bio?: string;
   country?: string;
 }
-
-export interface IArtistUpdate {
-  id: string;
-  artistDetails: IArtistForm;
-}

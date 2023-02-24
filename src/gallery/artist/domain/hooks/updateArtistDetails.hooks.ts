@@ -1,4 +1,4 @@
-import { IArtistUpdate } from './../types/artist.type';
+import { IArtistForm } from './../types/artist.type';
 import { useQueryClient, useMutation } from 'react-query';
 
 import { updateArtistProfile } from '../services/Artist.services';
@@ -6,13 +6,19 @@ import { updateArtistProfile } from '../services/Artist.services';
 const useUpdateArtistDetails = () => {
   const queryClient = useQueryClient();
   const updateArtistDetails = useMutation(
-    (params) => {
-      return updateArtistProfile(params.id, params.info);
+    ({
+      artistId,
+      artistDetails,
+    }: {
+      artistId: string;
+      artistDetails: IArtistForm;
+    }) => {
+      return updateArtistProfile(artistId, artistDetails);
     },
     {
+      // TODO add toaster to inform users for success or fail
       onSuccess: async () => {
         await queryClient.invalidateQueries('artist');
-        console.log('ok');
       },
       onError: () => console.log('error'),
     }
