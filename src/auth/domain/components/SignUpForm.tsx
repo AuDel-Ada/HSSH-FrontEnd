@@ -23,16 +23,16 @@ const SignInForm: React.FC = () => {
             <form onSubmit={onSubmit}>
               <div className="mb-4">
                 <div className="mb-2">
-                  <label className="text-lg">Your pseudo :</label>
+                  <label className="text-lg">Your name :</label>
                 </div>
                 <div>
                   <input
-                    {...register('pseudo', { required: true, maxLength: 20 })}
+                    {...register('name', { required: true })}
                     type="text"
                     className="text-black w-full p-2"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.pseudo && (
+                    {errors.name && (
                       <span>
                         This field is required with a minimum of 8 characters
                       </span>
@@ -64,13 +64,16 @@ const SignInForm: React.FC = () => {
                     {...register('password', {
                       required: true,
                       minLength: 8,
-                      maxLength: 20,
                     })}
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.password && <span>This field is required</span>}
+                    {errors.password && (
+                      <span>
+                        This field is required with a minimum of 8 characters
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>

@@ -44,12 +44,16 @@ const LoginForm: React.FC = () => {
                 </div>
                 <div>
                   <input
-                    {...register('password', { required: true })}
+                    {...register('password', { required: true, minLength: 8 })}
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.password && <span>This field is required</span>}
+                    {errors.password && (
+                      <span>
+                        This field is required with a minimum of 8 characters
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>
