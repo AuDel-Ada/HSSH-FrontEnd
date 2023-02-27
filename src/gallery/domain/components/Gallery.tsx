@@ -24,7 +24,9 @@ const Gallery: React.FC = () => {
           <>
             <div className="justify-center items-center">
               <h1 className="text-2xl font-extrabold m-4">HSSH GALLERY</h1>
-              <div className="grid grid-cols-4 gap-4">{arrayOfPieces}</div>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+                {arrayOfPieces}
+              </div>
             </div>
           </>
         }

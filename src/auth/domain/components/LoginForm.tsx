@@ -15,7 +15,7 @@ const LoginForm: React.FC = () => {
   const onSubmit = handleSubmit((data) => console.log(data));
 
   return (
-    <div className="w-1/3 m-auto mt-24">
+    <div className="w-full m-auto mt-24 md:w-1/3">
       <Box
         childComponent={
           <>
@@ -33,7 +33,7 @@ const LoginForm: React.FC = () => {
                     type="email"
                     className="text-black w-full p-2"
                   ></input>
-                  <p className="mt-2">
+                  <p className="mt-2 text-red-500">
                     {errors.email && <span>This field is required</span>}
                   </p>
                 </div>
@@ -44,12 +44,16 @@ const LoginForm: React.FC = () => {
                 </div>
                 <div>
                   <input
-                    {...register('password', { required: true })}
+                    {...register('password', { required: true, minLength: 8 })}
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
-                  <p className="mt-2">
-                    {errors.password && <span>This field is required</span>}
+                  <p className="mt-2 text-red-500">
+                    {errors.password && (
+                      <span>
+                        This field is required with a minimum of 8 characters
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>

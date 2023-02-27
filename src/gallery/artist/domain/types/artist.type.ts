@@ -15,3 +15,11 @@ export interface IArtistResponse {
 export interface IArtistComponents {
   artist: IArtist;
 }
+
+export interface IArtistForm {
+  name: string;
+  email: string;
+  pronouns?: string;
+  bio?: string;
+  country?: string;
+}
