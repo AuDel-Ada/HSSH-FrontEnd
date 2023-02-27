@@ -1,18 +1,22 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
-import type { AuthFormInput } from '../types/auth.type';
+import { IAuthFormInput } from '../types/auth.type';
+import useSignUpArtist from '../hooks/signUpArtist';
 
 const SignInForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AuthFormInput>();
-
-  const onSubmit = handleSubmit((data) => console.log(data));
+  } = useForm<IAuthFormInput>();
+  const { createNewArtist } = useSignUpArtist();
+  const onSubmit = handleSubmit((data) => {
+    createNewArtist.mutate(data);
+  });
 
   return (
     <div className="w-full m-auto mt-24 md:w-1/3">

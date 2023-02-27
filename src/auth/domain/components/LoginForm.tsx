@@ -3,14 +3,14 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
-import type { AuthFormInput } from '../types/auth.type';
+import { IAuthFormInput } from '../types/auth.type';
 
 const LoginForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AuthFormInput>();
+  } = useForm<IAuthFormInput>();
 
   const onSubmit = handleSubmit((data) => console.log(data));
 
