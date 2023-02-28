@@ -7,15 +7,16 @@
   "author": "Aurelie Delaunay, Caroline Guedj, Flora Hommand",
   "type": "module",
   "scripts": {
-    "start": "vite --host 0.0.0.0 --port $PORT",
+    "start": "vite --host 0.0.0.0 --port $PORT -- --mode=production",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build -- --mode=production",
     "preview": "vite preview",
     "lint": "eslint --ext js,jsx,ts,tsx,json src",
     "lint-fix": "eslint --fix --ext js,jsx,ts,tsx,json src"
   },
   "dependencies": {
     "connectkit": "^1.1.2",
+    "dotenv": "^16.0.3",
     "ethers": "^5.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
