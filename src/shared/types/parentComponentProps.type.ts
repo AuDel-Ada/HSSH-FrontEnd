@@ -1,3 +1,3 @@
-export interface ParentComponentProps {
-    childComponent?: React.ReactNode;
+export interface IParentComponentProps {
+  childComponent?: React.ReactNode;
 }

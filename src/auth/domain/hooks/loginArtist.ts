@@ -12,8 +12,8 @@ const useLoginArtist = () => {
     },
     {
       onSuccess: async (response) => {
-        localStorage.setItem('auth', response.result.token);
-        localStorage.setItem('userId', response.result.artistId);
+        localStorage.setItem('artistToken', response.result.token);
+        localStorage.setItem('artistId', response.result.artistId);
         navigate('../../home');
       },
       onError: () => console.log('error'),

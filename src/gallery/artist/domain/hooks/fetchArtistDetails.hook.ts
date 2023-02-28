@@ -7,19 +7,13 @@ const useFetchArtistDetails = (id: string) => {
     isLoading: isArtistLoading,
     data: artist,
     error,
-  } = useQuery(
-    'artist',
-    async () => {
-      const response = await fetchArtistDetails(id);
-      if (!response) {
-        throw new Error('Error while fetching artist details');
-      }
-      return response.artist;
-    },
-    {
-      staleTime: Infinity,
+  } = useQuery('artist', async () => {
+    const response = await fetchArtistDetails(id);
+    if (!response) {
+      throw new Error('Error while fetching artist details');
     }
-  );
+    return response.artist;
+  });
   return {
     artist,
     isArtistLoading,
