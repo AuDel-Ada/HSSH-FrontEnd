@@ -1,10 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
 import { IAuthFormInput } from '../types/auth.type';
-
+import useLoginArtist from '../hooks/loginArtist';
 const LoginForm: React.FC = () => {
   const {
     register,
@@ -12,7 +13,10 @@ const LoginForm: React.FC = () => {
     formState: { errors },
   } = useForm<IAuthFormInput>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const { connectArtist } = useLoginArtist();
+  const onSubmit = handleSubmit((data) => {
+    connectArtist.mutate(data);
+  });
 
   return (
     <div className="w-full m-auto mt-24 md:w-1/3">
@@ -44,16 +48,14 @@ const LoginForm: React.FC = () => {
                 </div>
                 <div>
                   <input
-                    {...register('password', { required: true, minLength: 8 })}
+                    {...register('password', {
+                      required: true,
+                    })}
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.password && (
-                      <span>
-                        This field is required with a minimum of 8 characters
-                      </span>
-                    )}
+                    {errors.password && <span>This field is required.</span>}
                   </p>
                 </div>
               </div>

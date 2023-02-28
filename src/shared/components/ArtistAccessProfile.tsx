@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useLogoutArtist from '../../auth/domain/hooks/logoutArtist';
 
 const ArtistAccessProfile: React.FC = () => {
   const [isDropdownMenuDisplayed, setDropdownMenu] = useState(false);
+  const { logout } = useLogoutArtist();
 
   if (!isDropdownMenuDisplayed) {
     return (
@@ -21,7 +23,7 @@ const ArtistAccessProfile: React.FC = () => {
         onMouseLeave={() => setDropdownMenu(false)}
       >
         <div className="border-solid border-2 border-black cursor-pointer hover:bg-black hover:text-slate-50">
-          <button className="m-3" onClick={() => console.log('logout action')}>
+          <button className="m-3" onClick={() => logout()}>
             LOGOUT
           </button>
         </div>

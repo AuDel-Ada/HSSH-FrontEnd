@@ -4,7 +4,7 @@ import HsshButton from './HsshButton';
 import ArtistAccessProfile from './ArtistAccessProfile';
 
 const ArtistConnectButtons: React.FC = () => {
-  const isArtistLoggedIn = false;
+  const isArtistLoggedIn = localStorage.auth ? localStorage.auth : false;
 
   if (!isArtistLoggedIn) {
     return (
