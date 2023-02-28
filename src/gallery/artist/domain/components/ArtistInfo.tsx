@@ -7,7 +7,7 @@ import ArtistInfoRight from './ArtistInfoRight';
 const ArtistInfo: React.FC = () => {
   const { artist, isArtistLoading, error } = useFetchArtistDetails(
     // TODO add a valid id please
-    '63f49fb1e385925cf0383947'
+    '63fe10e7f2e3c164b09e831d'
   );
   if (isArtistLoading) {
     return <h2 className="m-4">Loading...</h2>;
