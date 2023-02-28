@@ -6,8 +6,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const BACKEND_URL = process.env.BACKEND_URL;
-console.log(BACKEND_URL);
-console.log(import.meta.env);
 
 export const fetchArtistDetails = async (
   id: string
