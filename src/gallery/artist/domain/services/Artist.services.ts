@@ -14,8 +14,7 @@ export const fetchArtistDetails = async (
   id: string
 ): Promise<IArtistResponse> => {
   const response = await fetch(`${BACKEND_URL}artists/${id}`);
-  const testResponse = response.clone();
-  console.log('test:', testResponse);
+  console.log('test:', response);
   return response.json();
 };
 
