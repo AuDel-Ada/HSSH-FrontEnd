@@ -1,18 +1,30 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
-import type { AuthFormInput } from '../types/auth.type';
+import { IAuthFormInput } from '../types/auth.type';
+import useSignUpArtist from '../hooks/signUpArtist';
 
 const SignInForm: React.FC = () => {
+  const strongPasswordPattern = new RegExp(
+    '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})'
+  );
+  const passwordErrorMessage =
+    'Password is required with stronger security. Check recommendations below.';
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AuthFormInput>();
+  } = useForm<IAuthFormInput>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const { createNewArtist } = useSignUpArtist();
+
+  const onSubmit = handleSubmit((data) => {
+    createNewArtist.mutate(data);
+  });
 
   return (
     <div className="w-full m-auto mt-24 md:w-1/3">
@@ -52,24 +64,40 @@ const SignInForm: React.FC = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <div className="mb-2">
-                  <label className="text-lg">Your password :</label>
-                </div>
-                <div>
+                <div className="mb-4">
+                  <div className="mb-2">
+                    <label className="text-lg">Your password :</label>
+                  </div>
                   <input
                     {...register('password', {
                       required: true,
                       minLength: 8,
+                      pattern: {
+                        value: strongPasswordPattern,
+                        message: passwordErrorMessage,
+                      },
                     })}
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.password && (
-                      <span>
-                        This field is required with a minimum of 8 characters
-                      </span>
-                    )}
+                    {errors.password && <span>{passwordErrorMessage}</span>}
+                  </p>
+                </div>
+
+                <div className="password-security">
+                  <p>
+                    <i className="fa-solid fa-exclamation"></i> The password is
+                    at least 8 characters long.
+                    <br /> <i className="fa-solid fa-exclamation"></i> The
+                    password has at least one uppercase letter.
+                    <br /> <i className="fa-solid fa-exclamation"></i> The
+                    password has at least one lowercase letter.
+                    <br />
+                    <i className="fa-solid fa-exclamation"></i> The password has
+                    at least one digit.
+                    <br /> <i className="fa-solid fa-exclamation"></i> The
+                    password has at least one special character.
                   </p>
                 </div>
               </div>

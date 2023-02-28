@@ -4,9 +4,7 @@ import HsshButton from './HsshButton';
 import ArtistAccessProfile from './ArtistAccessProfile';
 
 const ArtistConnectButtons: React.FC = () => {
-  const isArtistLoggedIn = false;
-
-  if (!isArtistLoggedIn) {
+  if (!localStorage.artistToken) {
     return (
       <div className="flex">
         <div className="mr-4">

@@ -9,12 +9,10 @@ import useFetchArtistDetails from '../hooks/fetchArtistDetails.hook';
 import useUpdateArtistDetails from '../hooks/updateArtistDetails.hooks';
 
 const ArtistForm: React.FC = () => {
-  const DEFAULT_ID = '63d7d085d6c95a0b324e2afe';
   const navigate = useNavigate();
 
   const { artist, isArtistLoading, error } = useFetchArtistDetails(
-    // TODO add a valid id please
-    DEFAULT_ID
+    localStorage.artistId
   );
 
   const {
@@ -27,7 +25,7 @@ const ArtistForm: React.FC = () => {
 
   const onSubmit = handleSubmit((data) => {
     const params = {
-      artistId: DEFAULT_ID,
+      artistId: localStorage.artistId,
       artistDetails: data,
     };
     updateArtistDetails.mutate(params);

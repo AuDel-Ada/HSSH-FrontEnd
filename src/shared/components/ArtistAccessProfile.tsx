@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useLogoutArtist from '../../auth/domain/hooks/logoutArtist';
 
 const ArtistAccessProfile: React.FC = () => {
   const [isDropdownMenuDisplayed, setDropdownMenu] = useState(false);
+  const { logout } = useLogoutArtist();
+  const id = localStorage.artistId;
+  const navigate = useNavigate();
 
   if (!isDropdownMenuDisplayed) {
     return (
@@ -21,19 +25,25 @@ const ArtistAccessProfile: React.FC = () => {
         onMouseLeave={() => setDropdownMenu(false)}
       >
         <div className="border-solid border-2 border-black cursor-pointer hover:bg-black hover:text-slate-50">
-          <button className="m-3" onClick={() => console.log('logout action')}>
+          <button className="m-3" onClick={() => logout()}>
             LOGOUT
           </button>
         </div>
         <div className="border-solid border-2 border-black cursor-pointer hover:bg-black hover:text-slate-50">
-          <div className="m-3">
-            <Link to={'#'}>EDIT MY PROFILE</Link>
-          </div>
+          <button
+            className="m-3"
+            onClick={() => navigate(`../artist/${id}/edit`)}
+          >
+            EDIT MY PROFILE
+          </button>
         </div>
         <div className="border-solid border-2 border-black cursor-pointer hover:bg-black hover:text-slate-50">
-          <div className="m-3">
-            <Link to={'#'}>VISIT MY PROFILE</Link>
-          </div>
+          <button
+            className="m-3"
+            onClick={() => navigate(`../artist/${id}/visit`)}
+          >
+            VISIT MY PROFILE
+          </button>
         </div>
         <div className="border-solid border-2 border-black cursor-pointer hover:bg-black hover:text-slate-50">
           <div className="m-3">

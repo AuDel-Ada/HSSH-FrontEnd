@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { IHsshButtonType } from '../types/hsshButtonProps.type';
+import { IHsshButtonType } from '../types/hsshButtonProps.type';
 
 const HsshButton: React.FC<IHsshButtonType> = (props) => {
   return (

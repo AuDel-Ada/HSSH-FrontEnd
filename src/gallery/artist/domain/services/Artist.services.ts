@@ -19,7 +19,7 @@ export const updateArtistProfile = async (
     body: JSON.stringify(params),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
-      Authorization: 'AUTH_SECRET',
+      Authorization: 'RANDOM_TOKEN_SECRET',
     },
   });
   return response.json();

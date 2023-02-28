@@ -8,6 +8,7 @@ import LoginForm from './auth/domain/components/LoginForm';
 import ArtistDetails from './gallery/artist/domain/page/ArtistDetails.page';
 import ArtistInfo from './gallery/artist/domain/components/ArtistInfo';
 import ArtistForm from './gallery/artist/domain/components/ArtistForm';
+import Protected from './shared/components/Protected';
 
 const Router: React.FC = () => {
   return (
@@ -21,7 +22,14 @@ const Router: React.FC = () => {
         </Route>
         <Route path="/artist/:id" element={<ArtistDetails />}>
           <Route path="visit" element={<ArtistInfo />}></Route>
-          <Route path="edit" element={<ArtistForm />}></Route>
+          <Route
+            path="edit"
+            element={
+              <Protected>
+                <ArtistForm></ArtistForm>
+              </Protected>
+            }
+          ></Route>
         </Route>
       </Routes>
     </div>
