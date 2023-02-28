@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query';
 import { useState } from 'react';
-import { Nft } from '../../../types/nft';
+import { INft } from '../../../types/nft';
 import { fetchAllArtistsInfos } from '../services/Artist.services';
 
 const useFetchAllNftsInfos = () => {
-  const [pieces, setPieces] = useState<Nft[] | any[]>([]);
+  //TODO: fix type
+  const [pieces, setPieces] = useState<INft[] | any[]>([]);
 
   const { data: artists } = useQuery(
     'artists',

@@ -1,11 +1,12 @@
+import React from 'react';
 import { useState } from 'react';
 import Box from '../../shared/components/Box';
 import HsshButton from '../../shared/components/HsshButton';
-import { Nft } from '../types/nft';
+import { INft } from '../types/nft';
 import { useContractRead } from 'wagmi';
 import { abi } from '../../../contractConfig.json';
 
-const PieceOfArt = ({ nft }: { nft: Nft }): JSX.Element => {
+const PieceOfArt = ({ nft }: { nft: INft }): JSX.Element => {
   const [imageUrl, setImageUrl] = useState<string>();
 
   const { isLoading: isNameLoading, data: name } = useContractRead({
@@ -22,7 +23,6 @@ const PieceOfArt = ({ nft }: { nft: Nft }): JSX.Element => {
   });
 
   const getImage = async (url: string) => {
-    console.log('url', url);
     const res = await fetch(url);
     const { image } = (await res.json()) as { image: string };
     setImageUrl(image.replace('ipfs://', 'https://gateway.pinata.cloud/ipfs/'));
@@ -47,6 +47,7 @@ const PieceOfArt = ({ nft }: { nft: Nft }): JSX.Element => {
           >
             <legend className="mb-6">
               <h2 className="text-xl font-bold">
+                {/* TODO: improve UI */}
                 <>TITLE = {isNameLoading ? 'LOADING' : name}</>
               </h2>
               <h3 className="text-md">ARTISTE = {nft.artist.name}</h3>

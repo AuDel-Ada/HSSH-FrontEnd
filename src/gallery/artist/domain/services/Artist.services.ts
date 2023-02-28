@@ -26,6 +26,6 @@ export const updateArtistProfile = async (
 };
 
 export const fetchAllArtistsInfos = async (): Promise<IArtistsResponse> => {
-  const response = await fetch(`http://localhost:8000/artists/`);
+  const response = await fetch(`${URL}artists/`);
   return response.json();
 };
