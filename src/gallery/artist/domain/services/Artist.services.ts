@@ -3,10 +3,19 @@ import type { IArtistResponse } from '../types/artist.type';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
+// export const fetchArtistDetails = async (
+//   id: string
+// ): Promise<IArtistResponse> => {
+//   const response = await fetch(`${BACKEND_URL}artists/${id}`);
+//   return response.json();
+// };
+
 export const fetchArtistDetails = async (
   id: string
 ): Promise<IArtistResponse> => {
   const response = await fetch(`${BACKEND_URL}artists/${id}`);
+  const testResponse = response.clone();
+  console.log('test:', testResponse);
   return response.json();
 };
 
