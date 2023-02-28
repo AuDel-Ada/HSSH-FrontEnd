@@ -1,15 +1,12 @@
 import { IArtistForm } from './../types/artist.type';
 import type { IArtistResponse } from '../types/artist.type';
 
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const BACKEND_URL = process.env.BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const fetchArtistDetails = async (
   id: string
 ): Promise<IArtistResponse> => {
+  console.log(BACKEND_URL);
   const response = await fetch(`${BACKEND_URL}artists/${id}`);
   return response.json();
 };
@@ -23,7 +20,7 @@ export const updateArtistProfile = async (
     body: JSON.stringify(params),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
-      Authorization: 'AUTH_SECRET',
+      Authorization: 'RANDOM_TOKEN_SECRET',
     },
   });
   return response.json();
