@@ -4,7 +4,7 @@ const useLogoutArtist = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    navigate('../join/login');
+    navigate('/join/login', { replace: true });
   };
 
   return { logout };

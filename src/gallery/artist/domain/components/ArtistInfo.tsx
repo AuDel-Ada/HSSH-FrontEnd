@@ -1,13 +1,14 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import useFetchArtistDetails from '../hooks/fetchArtistDetails.hook';
 import ArtistInfoLeft from './ArtistInfoLeft';
 import ArtistInfoRight from './ArtistInfoRight';
 
 const ArtistInfo: React.FC = () => {
+  const { id } = useParams();
   const { artist, isArtistLoading, error } = useFetchArtistDetails(
-    // TODO add a valid id please
-    '63f49fb1e385925cf0383947'
+    id as string
   );
   if (isArtistLoading) {
     return <h2 className="m-4">Loading...</h2>;
