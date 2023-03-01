@@ -1,9 +1,9 @@
 import { IAuthFormInput } from './../types/auth.type';
 
-const AUTH_URL = import.meta.env.VITE_AUTH_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const signUpArtist = async (params: IAuthFormInput) => {
-  const response = await fetch(AUTH_URL, {
+  const response = await fetch(BACKEND_URL, {
     method: 'POST',
     body: JSON.stringify(params),
     headers: {
@@ -14,7 +14,7 @@ export const signUpArtist = async (params: IAuthFormInput) => {
 };
 
 export const loginArtist = async (params: IAuthFormInput) => {
-  const response = await fetch(`${AUTH_URL}/login`, {
+  const response = await fetch(`${BACKEND_URL}/login`, {
     method: 'POST',
     body: JSON.stringify(params),
     headers: {

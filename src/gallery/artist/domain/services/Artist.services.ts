@@ -1,7 +1,7 @@
 import { IArtistForm } from './../types/artist.type';
 import type { IArtistResponse } from '../types/artist.type';
 
-const BACKEND_URL = import.meta.env.VITE_AUTH_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const fetchArtistDetails = async (
   id: string
