@@ -1,23 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 
-import Box from '../../../shared/components/Box';
-import HsshButton from '../../../shared/components/HsshButton';
-import { IAuthFormInput } from '../types/auth.type';
-import useLoginArtist from '../hooks/loginArtist';
-const LoginForm: React.FC = () => {
+import Box from '../../../../shared/components/Box';
+import HsshButton from '../../../../shared/components/HsshButton';
+import { IAddNftForm } from '../types/artist.type';
+
+const AddNftForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IAuthFormInput>();
+  } = useForm<IAddNftForm>();
 
-  const { connectArtist } = useLoginArtist();
-  const onSubmit = handleSubmit((data) => {
-    connectArtist.mutate(data);
+  const onSubmit = handleSubmit((data: IAddNftForm) => {
+    console.log(data);
   });
-
   return (
     <div className="w-full m-auto mt-24 md:w-1/3">
       <Box
@@ -92,4 +89,4 @@ const LoginForm: React.FC = () => {
   );
 };
 
-export default LoginForm;
+export default AddNftForm;
