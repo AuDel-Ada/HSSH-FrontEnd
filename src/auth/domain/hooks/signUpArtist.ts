@@ -14,7 +14,7 @@ const useSignUpArtist = () => {
     {
       onSuccess: async () => {
         await queryClient.invalidateQueries('artists');
-        navigate('/login', { replace: true });
+        navigate('/join/login', { replace: true });
       },
       onError: () => console.log('error'),
     }

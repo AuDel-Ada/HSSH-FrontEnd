@@ -1,12 +1,16 @@
 import { useQueryClient, useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
-import { deleteArtist } from '../services/deleteArtistAccount';
+import { deleteArtist } from '../services/Artist.services';
 
 const useDeleteArtistAccount = () => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const deleteArtistAction = useMutation((id: string) => deleteArtist(id), {
-    onSuccess: () => {
+    onSuccess: async () => {
       localStorage.clear();
-      //redirect
+      await queryClient.invalidateQueries('artists');
+      navigate('/home', { replace: true });
     },
     onError: () => console.log('error'),
   });
