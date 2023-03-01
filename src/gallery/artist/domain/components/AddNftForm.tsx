@@ -1,11 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 
 import Box from '../../../../shared/components/Box';
 import HsshButton from '../../../../shared/components/HsshButton';
 import { IAddNftForm } from '../types/artist.type';
+import useUpdateArtistDetails from '../hooks/updateArtistDetails.hooks';
 
 const AddNftForm: React.FC = () => {
+  const { id } = useParams();
+  const { updateArtistDetails } = useUpdateArtistDetails();
   const {
     register,
     handleSubmit,
@@ -13,7 +17,11 @@ const AddNftForm: React.FC = () => {
   } = useForm<IAddNftForm>();
 
   const onSubmit = handleSubmit((data: IAddNftForm) => {
-    console.log(data);
+    const params = {
+      artistId: id as string,
+      artistDetails: data,
+    };
+    updateArtistDetails.mutate(params);
   });
   return (
     <div className="w-full m-auto mt-24 md:w-1/3">
@@ -21,38 +29,23 @@ const AddNftForm: React.FC = () => {
         childComponent={
           <>
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Connect to your account
+              Add your nft
             </h2>
             <form onSubmit={onSubmit}>
               <div className="mb-4">
                 <div className="mb-2">
-                  <label className="text-lg">Your email :</label>
+                  <label className="text-lg">Smart Contrat n° :</label>
                 </div>
                 <div>
                   <input
-                    {...register('email', { required: true })}
-                    type="email"
+                    {...register('smartContractNumber', { required: true })}
+                    type="string"
                     className="text-black w-full p-2"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.email && <span>This field is required</span>}
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4">
-                <div className="mb-2">
-                  <label className="text-lg">Your password :</label>
-                </div>
-                <div>
-                  <input
-                    {...register('password', {
-                      required: true,
-                    })}
-                    className="text-black w-full p-2"
-                    type="password"
-                  ></input>
-                  <p className="mt-2 text-red-500">
-                    {errors.password && <span>This field is required.</span>}
+                    {errors.smartContractNumber && (
+                      <span>This field is required</span>
+                    )}
                   </p>
                 </div>
               </div>
@@ -63,25 +56,6 @@ const AddNftForm: React.FC = () => {
                 ></HsshButton>
               </div>
             </form>
-            <div className="text-center mt-6">
-              <div className="mt-4">
-                <a className="text-sm cursor-pointer underline underline-offset-8">
-                  Forgot password ?
-                </a>
-              </div>
-              <div className="mt-4">
-                <span className="text-sm">
-                  You do not have an account yet ? Click&nbsp;
-                  <Link
-                    to="../sign-in"
-                    className="cursor-pointer underline underline-offset-8"
-                  >
-                    here
-                  </Link>
-                  &nbsp;to register.
-                </span>
-              </div>
-            </div>
           </>
         }
       ></Box>

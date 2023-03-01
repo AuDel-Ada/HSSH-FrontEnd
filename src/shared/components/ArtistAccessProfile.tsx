@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useLogoutArtist from '../../auth/domain/hooks/logoutArtist';
 
 const ArtistAccessProfile: React.FC = () => {
@@ -46,9 +46,12 @@ const ArtistAccessProfile: React.FC = () => {
           </button>
         </div>
         <div className="border-solid border-2 border-black cursor-pointer hover:bg-black hover:text-slate-50">
-          <div className="m-3">
-            <Link to={'#'}> ADD A NFT</Link>
-          </div>
+          <button
+            className="m-3"
+            onClick={() => navigate(`../artist/${id}/add-nft`)}
+          >
+            ADD A NFT
+          </button>
         </div>
         <div className="border-solid border-2 border-black cursor-pointer text-red-500 hover:bg-red-500 hover:text-slate-50">
           <button
