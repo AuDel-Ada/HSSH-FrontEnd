@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useLogoutArtist from '../../auth/domain/hooks/logoutArtist';
+import useDeleteArtistAccount from '../hooks/deleteArtistAccount.hooks';
 
 const ArtistAccessProfile: React.FC = () => {
   const [isDropdownMenuDisplayed, setDropdownMenu] = useState(false);
   const { logout } = useLogoutArtist();
   const id = localStorage.artistId;
   const navigate = useNavigate();
+  const { deleteArtistAction } = useDeleteArtistAccount();
 
   if (!isDropdownMenuDisplayed) {
     return (
@@ -53,7 +55,10 @@ const ArtistAccessProfile: React.FC = () => {
         <div className="border-solid border-2 border-black cursor-pointer text-red-500 hover:bg-red-500 hover:text-slate-50">
           <button
             className="m-3"
-            onClick={() => console.log('delete account action')}
+            onClick={() => {
+              console.log('delete account action');
+              deleteArtistAction.mutate(localStorage.artistId);
+            }}
           >
             KILL MY ACCOUNT
           </button>
