@@ -1,5 +1,5 @@
-export type AuthFormInput = {
+export interface IAuthFormInput {
   email: string;
   password: string;
-  pseudo?: string;
-};
+  name?: string;
+}

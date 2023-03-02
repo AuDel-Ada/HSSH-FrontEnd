@@ -10,7 +10,7 @@ const Join: React.FC = () => {
       childComponent={
         <>
           <Header />
-          <div className="w-screen h-screen overflow-hidden	">
+          <div className="w-screen h-screen overflow-auto">
             <Outlet />
           </div>
         </>

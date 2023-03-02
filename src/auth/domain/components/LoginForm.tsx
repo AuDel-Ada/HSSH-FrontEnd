@@ -1,27 +1,32 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
-import type { AuthFormInput } from '../types/auth.type';
+import { IAuthFormInput } from '../types/auth.type';
+import useLoginArtist from '../hooks/loginArtist';
 
 const LoginForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AuthFormInput>();
+  } = useForm<IAuthFormInput>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const { connectArtist } = useLoginArtist();
+  const onSubmit = handleSubmit((data) => {
+    connectArtist.mutate(data);
+  });
 
   return (
-    <div className="w-1/3 m-auto mt-24">
+    <div className="w-full m-auto mt-24 md:w-1/3">
       <Box
         childComponent={
           <>
-            <h1 className="text-2xl font-bold mb-6 text-center">
+            <h2 className="text-2xl font-bold mb-6 text-center">
               Connect to your account
-            </h1>
+            </h2>
             <form onSubmit={onSubmit}>
               <div className="mb-4">
                 <div className="mb-2">
@@ -33,7 +38,7 @@ const LoginForm: React.FC = () => {
                     type="email"
                     className="text-black w-full p-2"
                   ></input>
-                  <p className="mt-2">
+                  <p className="mt-2 text-red-500">
                     {errors.email && <span>This field is required</span>}
                   </p>
                 </div>
@@ -44,12 +49,14 @@ const LoginForm: React.FC = () => {
                 </div>
                 <div>
                   <input
-                    {...register('password', { required: true })}
+                    {...register('password', {
+                      required: true,
+                    })}
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
-                  <p className="mt-2">
-                    {errors.password && <span>This field is required</span>}
+                  <p className="mt-2 text-red-500">
+                    {errors.password && <span>This field is required.</span>}
                   </p>
                 </div>
               </div>
