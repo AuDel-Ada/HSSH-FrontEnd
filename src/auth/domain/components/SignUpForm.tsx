@@ -52,12 +52,17 @@ const SignUpForm: React.FC = () => {
                 </div>
                 <div>
                   <input
+                    data-testid="email-input"
                     {...register('email', { required: true })}
                     type="email"
                     className="text-black w-full p-2"
                   ></input>
                   <p className="mt-2 text-red-500">
-                    {errors.email && <span>This field is required</span>}
+                    {errors.email && (
+                      <span data-testid="email-error-msg">
+                        This field is required
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>
@@ -67,6 +72,7 @@ const SignUpForm: React.FC = () => {
                     <label className="text-lg">Your password :</label>
                   </div>
                   <input
+                    data-testid="password-input"
                     {...register('password', {
                       required: true,
                       minLength: 8,
@@ -78,7 +84,10 @@ const SignUpForm: React.FC = () => {
                     className="text-black w-full p-2"
                     type="password"
                   ></input>
-                  <p className="mt-2 text-red-500">
+                  <p
+                    className="mt-2 text-red-500"
+                    data-testid="password-error-msg"
+                  >
                     {errors.password && <span>{passwordErrorMessage}</span>}
                   </p>
                 </div>
