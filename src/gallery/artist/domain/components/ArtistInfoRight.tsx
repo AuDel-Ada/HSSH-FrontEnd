@@ -1,5 +1,4 @@
 import React from 'react';
-
 import type { IArtistComponents } from '../types/artist.type';
 import Box from '../../../../shared/components/Box';
 import useGetNfsDatas from '../hooks/getNftsDatas';

@@ -6,6 +6,7 @@ import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
 import { IAuthFormInput } from '../types/auth.type';
 import useLoginArtist from '../hooks/loginArtist';
+
 const LoginForm: React.FC = () => {
   const {
     register,
