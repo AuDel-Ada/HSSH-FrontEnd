@@ -1,4 +1,4 @@
-import { IArtistForm } from './../types/artist.type';
+import { IArtistForm, IAddNftForm } from './../types/artist.type';
 import type { IArtistResponse, IArtistsResponse } from '../types/artist.type';
 
 const URL = 'http://localhost:8000/';
@@ -12,8 +12,8 @@ export const fetchArtistDetails = async (
 
 export const updateArtistProfile = async (
   id: string,
-  params: IArtistForm
-): Promise<IArtistForm> => {
+  params: IArtistForm | IAddNftForm
+) => {
   const response = await fetch(`${URL}artists/${id}`, {
     method: 'PATCH',
     body: JSON.stringify(params),
