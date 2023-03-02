@@ -7,7 +7,7 @@ import HsshButton from '../../../shared/components/HsshButton';
 import { IAuthFormInput } from '../types/auth.type';
 import useSignUpArtist from '../hooks/signUpArtist';
 
-const SignInForm: React.FC = () => {
+const SignUpForm: React.FC = () => {
   const strongPasswordPattern = new RegExp(
     '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})'
   );
@@ -31,7 +31,7 @@ const SignInForm: React.FC = () => {
       <Box
         childComponent={
           <>
-            <h1 className="text-2xl font-bold mb-6 text-center">Sign up</h1>
+            <h2 className="text-2xl font-bold mb-6 text-center">Sign up</h2>
             <form onSubmit={onSubmit}>
               <div className="mb-4">
                 <div className="mb-2">
@@ -129,4 +129,4 @@ const SignInForm: React.FC = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

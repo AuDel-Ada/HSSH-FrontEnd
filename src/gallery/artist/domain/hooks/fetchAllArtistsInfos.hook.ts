@@ -7,19 +7,13 @@ const useFetchAllNftsInfos = () => {
   //TODO: fix type
   const [pieces, setPieces] = useState<INft[] | any[]>([]);
 
-  const { data: artists } = useQuery(
-    'artists',
-    async () => {
-      const response = await fetchAllArtistsInfos();
-      if (!response) {
-        throw new Error('Error while fetching all artists infos');
-      }
-      return response.artists;
-    },
-    {
-      staleTime: Infinity,
+  const { data: artists } = useQuery('artists', async () => {
+    const response = await fetchAllArtistsInfos();
+    if (!response) {
+      throw new Error('Error while fetching all artists infos');
     }
-  );
+    return response.artists;
+  });
 
   if (artists?.length && !pieces.length) {
     const nfts = artists.map((artist) => {

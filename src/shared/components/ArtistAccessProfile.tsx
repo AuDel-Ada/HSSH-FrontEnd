@@ -56,7 +56,7 @@ const ArtistAccessProfile: React.FC = () => {
         <div className="border-solid border-2 border-black cursor-pointer text-red-500 hover:bg-red-500 hover:text-slate-50">
           <button
             className="m-3"
-            onClick={() => console.log('delete account action')}
+            onClick={() => navigate(`../artist/${id}/delete`)}
           >
             KILL MY ACCOUNT
           </button>

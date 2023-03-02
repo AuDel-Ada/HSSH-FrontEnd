@@ -9,6 +9,7 @@ import ArtistDetails from './gallery/artist/domain/page/ArtistDetails.page';
 import ArtistInfo from './gallery/artist/domain/components/ArtistInfo';
 import ArtistForm from './gallery/artist/domain/components/ArtistForm';
 import Protected from './shared/components/Protected';
+import DestroyAccount from './gallery/artist/domain/components/DestroyAccount';
 import AddNftForm from './gallery/artist/domain/components/AddNftForm';
 
 const Router: React.FC = () => {
@@ -28,6 +29,14 @@ const Router: React.FC = () => {
             element={
               <Protected>
                 <ArtistForm></ArtistForm>
+              </Protected>
+            }
+          ></Route>
+          <Route
+            path="delete"
+            element={
+              <Protected>
+                <DestroyAccount></DestroyAccount>
               </Protected>
             }
           ></Route>
