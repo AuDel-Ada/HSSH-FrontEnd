@@ -4,8 +4,7 @@ import { render } from '@testing-library/react';
 import HsshButton from './HsshButton';
 
 test('get the proper action', () => {
-  const props = 'Visit';
-  render(<HsshButton {...props} />);
+  render(<HsshButton text="Visit" />);
 
-  expect(props).toBeDefined();
+  expect('Visit').toBeDefined();
 });
