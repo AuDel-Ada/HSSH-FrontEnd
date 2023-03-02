@@ -1,4 +1,4 @@
-import { IArtistForm } from './../types/artist.type';
+import { IArtistForm, IAddNftForm } from './../types/artist.type';
 import { useQueryClient, useMutation } from 'react-query';
 
 import { updateArtistProfile } from '../services/Artist.services';
@@ -11,7 +11,7 @@ const useUpdateArtistDetails = () => {
       artistDetails,
     }: {
       artistId: string;
-      artistDetails: IArtistForm;
+      artistDetails: IArtistForm | IAddNftForm;
     }) => {
       return updateArtistProfile(artistId, artistDetails);
     },

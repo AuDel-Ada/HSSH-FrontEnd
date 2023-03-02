@@ -8,8 +8,7 @@ import ArtistInfoRight from './ArtistInfoRight';
 const ArtistInfo: React.FC = () => {
   const { id } = useParams();
   const { artist, isArtistLoading, error } = useFetchArtistDetails(
-    id as string
-  );
+    id as string);
   if (isArtistLoading) {
     return <h2 className="m-4">Loading...</h2>;
   } else if (error || !artist) {

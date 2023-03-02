@@ -28,3 +28,6 @@ export interface IArtistsResponse {
   artists: IArtist[];
 }
 
+export interface IAddNftForm {
+  smartContractNumber?: `0x${string}`;
+}
