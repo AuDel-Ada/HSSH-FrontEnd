@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import useLogoutArtist from '../../auth/domain/hooks/logoutArtist';
 
 const ArtistAccessProfile: React.FC = () => {
-  const [isDropdownMenuDisplayed, setDropdownMenu] = useState(false);
-  const { logout } = useLogoutArtist();
   const id = localStorage.artistId;
+
+  const [isDropdownMenuDisplayed, setDropdownMenu] = useState(false);
+
+  const { logout } = useLogoutArtist(id);
+  
   const navigate = useNavigate();
 
   if (!isDropdownMenuDisplayed) {

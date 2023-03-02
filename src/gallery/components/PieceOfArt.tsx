@@ -49,7 +49,7 @@ const PieceOfArt = ({ nft }: { nft: INft }): JSX.Element => {
               <h2 className="text-2xl font-bold mb-2 truncate w-full">
                 <>{isNameLoading ? 'LOADING' : name}</>
               </h2>
-              <h3 className="text-md italic font-semibold">
+              <h3 className="text-md italic font-semibold truncate w-full">
                 by {nft.artist.name}
               </h3>
             </legend>
