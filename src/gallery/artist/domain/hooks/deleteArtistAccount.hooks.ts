@@ -14,7 +14,6 @@ const useDeleteArtistAccount = (id: string) => {
       localStorage.clear();
       await queryClient.invalidateQueries(queryKeyArtists);
       await queryClient.invalidateQueries(queryKeyArtist);
-
       navigate('/home', { replace: true });
     },
     onError: () => console.log('error'),
