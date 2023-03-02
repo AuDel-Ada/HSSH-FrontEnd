@@ -9,10 +9,14 @@ const ArtistInfoLeft: React.FC<IArtistComponents> = (props) => {
       <Box
         childComponent={
           <div>
-            <h2 className="text-7xl font-bold mb-4">{props.artist.name}</h2>
+            <h2 className="text-7xl font-bold mb-4 break-words">
+              {props.artist.name}
+            </h2>
             <div className="text-lg italic mb-4">
               Pronouns :
-              {props.artist.pronouns ? props.artist.pronouns : ' undefined'}
+              {props.artist.pronouns
+                ? ` ${props.artist.pronouns}`
+                : ' undefined'}
             </div>
             <div className="text-lg mb-4">
               <i className="fa-solid fa-location-dot mr-2"></i>

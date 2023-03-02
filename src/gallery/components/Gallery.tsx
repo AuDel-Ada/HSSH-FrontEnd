@@ -1,22 +1,11 @@
 import React from 'react';
-import Box from '../../../shared/components/Box';
+import Box from '../../shared/components/Box';
 import PieceOfArt from './PieceOfArt';
+import useFetchAllNftsInfos from '../artist/domain/hooks/fetchAllArtistsInfos.hook';
 
-// TODO replace this code with a .map over get all nfts
-const NUMBER_OF_PIECES = 20;
-const arrayOfPieces: JSX.Element[] = [];
-
-const populateArrayOfPieces = () => {
-  let i = 0;
-  while (i < NUMBER_OF_PIECES) {
-    arrayOfPieces.push(<PieceOfArt id={i} key={i} />);
-    i++;
-  }
-};
-
-populateArrayOfPieces();
-//
 const Gallery: React.FC = () => {
+  const { pieces } = useFetchAllNftsInfos();
+
   return (
     <article className="w-screen">
       <Box
@@ -25,7 +14,9 @@ const Gallery: React.FC = () => {
             <div className="justify-center items-center">
               <h1 className="text-2xl font-extrabold m-4">HSSH GALLERY</h1>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-                {arrayOfPieces}
+                {pieces.map((piece) => (
+                  <PieceOfArt key={piece.address} nft={piece} />
+                ))}
               </div>
             </div>
           </>
@@ -34,5 +25,4 @@ const Gallery: React.FC = () => {
     </article>
   );
 };
-
 export default Gallery;

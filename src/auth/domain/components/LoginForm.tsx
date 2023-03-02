@@ -23,9 +23,9 @@ const LoginForm: React.FC = () => {
       <Box
         childComponent={
           <>
-            <h1 className="text-2xl font-bold mb-6 text-center">
+            <h2 className="text-2xl font-bold mb-6 text-center">
               Connect to your account
-            </h1>
+            </h2>
             <form onSubmit={onSubmit}>
               <div className="mb-4">
                 <div className="mb-2">

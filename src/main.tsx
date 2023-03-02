@@ -1,12 +1,12 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 
-import { BrowserRouter } from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import { WagmiConfig, createClient } from 'wagmi';
-import { ConnectKitProvider, getDefaultClient } from 'connectkit';
+import {QueryClient, QueryClientProvider} from 'react-query';
+import {ReactQueryDevtools} from 'react-query/devtools';
+import {createClient, WagmiConfig} from 'wagmi';
+import {ConnectKitProvider, getDefaultClient} from 'connectkit';
 
 import App from './App';
 
@@ -15,12 +15,12 @@ if (!rootElement) throw new Error('Failed to find the root element');
 const root = createRoot(rootElement);
 
 const queryCache = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: false,
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+            retry: false,
+        },
     },
-  },
 });
 
 const wagmiClient = createClient(

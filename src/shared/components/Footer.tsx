@@ -6,8 +6,11 @@ const Footer: React.FC = () => {
     <footer className="w-screen">
       <Box
         childComponent={
-          <div className="flex justify-center items-center">
-            <h1 className="text-xl">FOOTER</h1>
+          <div className="flex justify-evenly items-center font-bold">
+            <div className="text-xl">ABOUT</div>
+            <div className="text-xl">CAREER</div>
+            <div className="text-xl">HELP CENTER</div>
+            <div className="text-xl">CONTACTS</div>
           </div>
         }
       ></Box>
