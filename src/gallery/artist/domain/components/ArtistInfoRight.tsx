@@ -25,7 +25,7 @@ const ArtistInfoRight: React.FC<IArtistComponents> = (
               <img
                 src={imageUrl}
                 alt="nft artwork"
-                className="aspect-square"
+                className="aspect-square w-full"
               ></img>
             </div>
             {/* TO DO import NftsFromArtist.tsx */}
