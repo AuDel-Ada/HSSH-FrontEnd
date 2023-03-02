@@ -2,9 +2,11 @@ import { IArtistForm, IAddNftForm } from './../types/artist.type';
 import { useQueryClient, useMutation } from 'react-query';
 
 import { updateArtistProfile } from '../services/Artist.services';
+import useFetchAllArtistsInfos from './fetchAllArtistsInfos.hook';
 
 const useUpdateArtistDetails = () => {
   const queryClient = useQueryClient();
+  const { queryKeyArtists } = useFetchAllArtistsInfos();
   const updateArtistDetails = useMutation(
     ({
       artistId,
@@ -18,7 +20,7 @@ const useUpdateArtistDetails = () => {
     {
       // TODO add toaster to inform users for success or fail
       onSuccess: async () => {
-        await queryClient.invalidateQueries('artist');
+        await queryClient.invalidateQueries(queryKeyArtists);
       },
       onError: () => console.log('error'),
     }
