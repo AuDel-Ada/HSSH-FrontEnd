@@ -3,11 +3,12 @@ import { useQuery } from 'react-query';
 import { fetchArtistDetails } from '../services/Artist.services';
 
 const useFetchArtistDetails = (id: string) => {
+  const queryKeyArtist = 'artist';
   const {
     isLoading: isArtistLoading,
     data: artist,
     error,
-  } = useQuery('artist', async () => {
+  } = useQuery(queryKeyArtist, async () => {
     const response = await fetchArtistDetails(id);
     if (!response) {
       throw new Error('Error while fetching artist details');
@@ -18,6 +19,7 @@ const useFetchArtistDetails = (id: string) => {
     artist,
     isArtistLoading,
     error,
+    queryKeyArtist,
   };
 };
 

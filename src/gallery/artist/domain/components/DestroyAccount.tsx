@@ -4,7 +4,7 @@ import Box from '../../../../shared/components/Box';
 import useDeleteArtistAccount from '../hooks/deleteArtistAccount.hooks';
 
 const DestroyAccount: React.FC = () => {
-  const { deleteArtistAction } = useDeleteArtistAccount();
+  const { deleteArtistAction } = useDeleteArtistAccount(localStorage.artistId);
   const navigate = useNavigate();
 
   return (
