@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
 import useFetchArtistDetails from '../hooks/fetchArtistDetails.hook';
 import ArtistInfoLeft from './ArtistInfoLeft';
 import ArtistInfoRight from './ArtistInfoRight';

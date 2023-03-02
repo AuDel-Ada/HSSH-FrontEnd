@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-
 import Box from '../../../shared/components/Box';
 import HsshButton from '../../../shared/components/HsshButton';
 import { IAuthFormInput } from '../types/auth.type';
@@ -13,7 +12,6 @@ const SignUpForm: React.FC = () => {
   );
   const passwordErrorMessage =
     'Password is required with stronger security. Check recommendations below.';
-
   const {
     register,
     handleSubmit,
