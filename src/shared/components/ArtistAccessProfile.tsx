@@ -7,7 +7,9 @@ const ArtistAccessProfile: React.FC = () => {
   const id = localStorage.artistId;
 
   const [isDropdownMenuDisplayed, setDropdownMenu] = useState(false);
+
   const { logout } = useLogoutArtist(id);
+  
   const navigate = useNavigate();
 
   if (!isDropdownMenuDisplayed) {
