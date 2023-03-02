@@ -3,23 +3,16 @@ import { useState } from 'react';
 import { INft } from '../../../types/nft';
 import { fetchAllArtistsInfos } from '../services/Artist.services';
 
-const useFetchAllNftsInfos = () => {
-  //TODO: fix type
-  const [pieces, setPieces] = useState<INft[] | any[]>([]);
-
-  const { data: artists } = useQuery(
-    'artists',
-    async () => {
-      const response = await fetchAllArtistsInfos();
-      if (!response) {
-        throw new Error('Error while fetching all artists infos');
-      }
-      return response.artists;
-    },
-    {
-      staleTime: Infinity,
+const useFetchAllArtistsInfos = () => {
+  const [pieces, setPieces] = useState<INft[]>([]);
+  const queryKeyArtists = 'artists';
+  const { data: artists } = useQuery(queryKeyArtists, async () => {
+    const response = await fetchAllArtistsInfos();
+    if (!response) {
+      throw new Error('Error while fetching all artists infos');
     }
-  );
+    return response.artists;
+  });
 
   if (artists?.length && !pieces.length) {
     const nfts = artists.map((artist) => {
@@ -37,7 +30,8 @@ const useFetchAllNftsInfos = () => {
 
   return {
     pieces,
+    queryKeyArtists,
   };
 };
 
-export default useFetchAllNftsInfos;
+export default useFetchAllArtistsInfos;

@@ -14,6 +14,14 @@ const ArtistInfo: React.FC = () => {
     return <h2 className="m-4">Loading...</h2>;
   } else if (error || !artist) {
     return <h2 className="m-4">Error...</h2>;
+  } else if (!artist.smartContractNumber?.length) {
+    return (
+      <section>
+        <article className="w-full">
+          <ArtistInfoLeft artist={artist}></ArtistInfoLeft>
+        </article>
+      </section>
+    );
   }
 
   return (
