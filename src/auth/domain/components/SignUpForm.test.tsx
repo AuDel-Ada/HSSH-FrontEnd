@@ -24,7 +24,4 @@ test('not accept password with less than 8 characters', async () => {
 
   expect(screen.getByTestId('password-input')).toHaveValue('test');
   expect(screen.queryByTestId('password-error-msg')).toBeInTheDocument();
-  // expect(screen.queryByTestId('password-error-msg').textContent).toEqual(
-  //   'This field is required with a minimum of 8 characters.'
-  // );
 });
