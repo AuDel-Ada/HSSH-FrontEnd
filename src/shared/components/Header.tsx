@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     <header className="w-screen">
       <Link to={'../home'}>
         <div title="HouseShow logo">
-          <Logo className="w-96 pl-4 h-28"></Logo>
+          <Logo className="w-96 pl-4 h-28" data-testid="logo"></Logo>
         </div>
       </Link>
       <Box
