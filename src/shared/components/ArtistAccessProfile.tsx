@@ -8,8 +8,8 @@ const ArtistAccessProfile: React.FC = () => {
 
   const [isDropdownMenuDisplayed, setDropdownMenu] = useState(false);
 
-  const { logout } = useLogoutArtist(id);
-  
+  const { logout } = useLogoutArtist();
+
   const navigate = useNavigate();
 
   if (!isDropdownMenuDisplayed) {

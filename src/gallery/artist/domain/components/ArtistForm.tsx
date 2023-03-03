@@ -31,7 +31,7 @@ const ArtistForm: React.FC = () => {
     updateArtistDetails.mutate(params);
   });
 
-  if (isArtistLoading) {
+  if (isArtistLoading || artist?._id !== localStorage.artistId) {
     return <h2 className="m-4">Loading...</h2>;
   } else if (error || !artist) {
     return <h2 className="m-4">Error...</h2>;
@@ -55,8 +55,8 @@ const ArtistForm: React.FC = () => {
                     <input
                       {...register('name', { required: true })}
                       type="text"
-                      defaultValue={artist.name}
                       className="text-black p-2 w-full"
+                      defaultValue={artist.name}
                     ></input>
                     <p className="mt-2 text-red-500">
                       {errors.name && <span>This field can not be empty</span>}
@@ -71,8 +71,8 @@ const ArtistForm: React.FC = () => {
                     <input
                       {...register('email', { required: true })}
                       type="email"
-                      defaultValue={artist.email}
                       className="text-black w-full p-2"
+                      defaultValue={artist.email}
                     ></input>
                     <p className="mt-2 text-red-500">
                       {errors.email && <span>This field can not be empty</span>}
@@ -90,7 +90,7 @@ const ArtistForm: React.FC = () => {
                       {...register('country')}
                       type="text"
                       className="text-black p-2 w-full"
-                      defaultValue={artist?.country}
+                      defaultValue={artist.country}
                     ></input>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ const ArtistForm: React.FC = () => {
                       {...register('pronouns')}
                       type="text"
                       className="text-black p-2 w-full"
-                      defaultValue={artist?.pronouns}
+                      defaultValue={artist.pronouns}
                     ></input>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ const ArtistForm: React.FC = () => {
                     <textarea
                       {...register('bio')}
                       className="text-black w-full p-2 h-80"
-                      defaultValue={artist?.bio}
+                      defaultValue={artist.bio}
                     ></textarea>
                   </div>
                 </div>
