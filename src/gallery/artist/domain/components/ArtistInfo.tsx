@@ -9,7 +9,7 @@ const ArtistInfo: React.FC = () => {
   const { artist, isArtistLoading, error } = useFetchArtistDetails(
     id as string
   );
-  if (isArtistLoading) {
+  if (isArtistLoading || artist?._id !== id) {
     return <h2 className="m-4">Loading...</h2>;
   } else if (error || !artist) {
     return <h2 className="m-4">Error...</h2>;
