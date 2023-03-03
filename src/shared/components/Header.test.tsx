@@ -1,5 +1,5 @@
 import React from 'react';
-import { test } from 'vitest';
+import { test, expect } from 'vitest';
 import { screen } from '@testing-library/react';
 
 import customRender from '../../../test-utils';
