@@ -10,6 +10,7 @@ const ArtistAccessProfile: React.FC = () => {
 
   const { logout } = useLogoutArtist();
 
+
   const navigate = useNavigate();
 
   if (!isDropdownMenuDisplayed) {
